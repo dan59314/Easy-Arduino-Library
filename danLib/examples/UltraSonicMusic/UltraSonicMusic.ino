@@ -1,0 +1,97 @@
+
+/* -----------------------------------------------------------------------------
+  Copyright: (C) Daniel Lu, RasVector Technology.
+
+  Email : dan59314@gmail.com
+   Web :     http://www.rasvector.url.tw/
+  YouTube : http://www.youtube.com/dan59314/playlist
+
+  This software may be freely copied, modified, and redistributed
+  provided that this copyright notice is preserved on all copies.
+  The intellectual property rights of the algorithms used reside
+  with the Daniel Lu, RasVector Technology.
+
+  You may not distribute this software, in whole or in part, as
+  part of any commercial product without the express consent of
+  the author.
+
+  There is no warranty or other guarantee of fitness of this
+  software for any purpose. It is provided solely "as is".
+
+  ---------------------------------------------------------------------------------
+  版權宣告  (C) Daniel Lu, RasVector Technology.
+
+  Email : dan59314@gmail.com
+  Web :     http://www.rasvector.url.tw/
+  YouTube : http://www.youtube.com/dan59314/playlist
+
+  使用或修改軟體，請註明引用出處資訊如上。未經過作者明示同意，禁止使用在商業用途。
+*/
+
+
+
+
+#define debug
+
+#include <UltraSonicManage.h>
+#include <BuzzerPlay.h>
+#include <BuzzerNoteDefine.h>
+
+
+
+// Constants ---------------------------------------------
+const int cTrigPin = 12;
+const int cEchoPin = 13;
+const int cBuzzerPin = 7;
+
+// Variables -------------------------------------
+#ifdef debug
+char sPrnt[64];
+#endif
+float gDistance;
+byte gTempo = cNormalTempo;
+
+
+/*
+void Initial_Pins(int trigPin, int echoPin)
+{
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+}*/
+
+
+
+
+void setup() 
+{
+  // 蜂鳴器初始化---------------------------------------------------
+  BuzzerPlayer.Initial(cBuzzerPin, gTempo, NULL);
+
+  //超音波初始化 --------------------------------------------
+  UltraSonicGesturer.Initial(cTrigPin, cEchoPin);
+  
+#ifdef debug
+  Serial.begin(115200); // Starts the serial communication
+#endif
+}
+
+void loop() 
+{
+  // 取得超音波模組距離 ---------------------------------
+  gDistance = UltraSonicGesturer.Distance_CM();
+
+  if (gDistance<50) BuzzerPlayer.Play_Tone( 6000/gDistance, 10 );
+
+  
+  // Add your own code here.  在這裡加上你的 Code
+  // ......................
+  
+  
+  
+  //delay(10);
+
+ #ifdef debug
+  Serial.print("Distance: ");
+  Serial.println(gDistance);
+ #endif
+}
