@@ -48,6 +48,8 @@ DanLib is a free library that you can easily implement the following functions.
   
   ---------------------------------------------------------------------------------
 
+Introduction, document, videos....
+https://www.instructables.com/member/Daniel%20Lu/instructables/
 
 
 DanLib is a free library that you can easily implement the following functions.
