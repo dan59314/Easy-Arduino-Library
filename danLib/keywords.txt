@@ -1,6 +1,6 @@
 /* 
-	KEYWORD1 �����r
-	KEYWORD2 �зǾ�r
+	KEYWORD1 ²ÊÅé¾ï¦r
+	KEYWORD2 ¼Ð·Ç¾ï¦r
 */
 
 
@@ -19,8 +19,8 @@
 
 
 StringManager	KEYWORD1
-PCSerialManager KEYWORD1
-BlueToothSerialManager KEYWORD1
+PCSerialManager	KEYWORD1
+BlueToothSerialManager	KEYWORD1
 
 
 
@@ -34,10 +34,10 @@ BlueToothSerialManager KEYWORD1
 
 Split	KEYWORD2
 Initial	KEYWORD2
-initial KEYWORD2
+initial	KEYWORD2
 Run	KEYWORD2
 Receive_LineString	KEYWORD2
-Check_And_Process_LineString KEYWORD2
+Check_And_Process_LineString	KEYWORD2
 
 
 #######################################
